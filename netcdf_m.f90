@@ -36,7 +36,8 @@ implicit none
 #ifdef ncclib
 private
 #else
-include 'netcdf.inc'
+include '/usr/include/netcdf.inc'
+!include 'netcdf.inc'
 
 public
 #endif

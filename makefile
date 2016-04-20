@@ -3,7 +3,7 @@ FC = mpif90
 # Common compiler flags
 ifneq ($(CUSTOM),yes)
 NCFLAG = -I $(NETCDF_ROOT)/include
-MPIFLAG = -Dusempi3
+#MPIFLAG = -Dusempi3
 FFLAGS = -xHost -ftz -fp-model precise $(MPIFLAG) $(NCFLAG)
 LIBS = -L $(NETCDF_ROOT)/lib -lnetcdf -lnetcdff
 PPFLAG90 = -fpp
@@ -19,6 +19,7 @@ ifeq ($(GFORTRAN),yes)
 MPIFC = gfortran
 MPIF77 = gfortran
 FC = mpif90
+NCFLAG += -Dusempif -Dusenc3
 FFLAGS = -O2 -mtune=native -march=native $(MPIFLAG) $(NCFLAG)
 PPFLAG90 = -x f95-cpp-input
 PPFLAG77 = -x f77-cpp-input
